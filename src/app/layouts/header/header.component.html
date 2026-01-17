@@ -1,0 +1,24 @@
+<header class="app-header">
+  <div class="app-header__left">
+    <span class="app-header__title">UIComponentsAngular</span>
+  </div>
+
+  <div class="app-header__center">
+    <div class="app-header__palette app-header__palette--fan">
+      @for (theme of themes; track theme.id) {
+        <span 
+          class="app-header__color"
+          [class.app-header__color--active]="currentTheme().id === theme.id"
+          [class.app-header__color--center]="theme.id === 'blue'"
+          [style.background-color]="theme.primaryColor"
+          [attr.title]="theme.name"
+          (click)="onThemeChange(theme.id)">
+        </span>
+      }
+      <div class="app-header__palette-rivet">
+        <div class="app-header__palette-rivet-inner"></div>
+      </div>
+    </div>
+  </div>
+
+</header>

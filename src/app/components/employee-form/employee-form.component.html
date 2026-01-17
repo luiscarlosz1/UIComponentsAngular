@@ -1,0 +1,152 @@
+<form class="employee-form" (submit)="onSubmit($event)">
+    <section>
+        <ui-input 
+          label="First Name" 
+          name="names"
+          [field]="employeeForm.names" 
+          [required]="true"
+          [externalError]="getExternalError(employeeForm.names())"
+          ngDefaultControl />
+        <ui-input 
+          label="Last Name" 
+          name="lastNames" 
+          [required]="true"
+          [field]="employeeForm.lastNames"
+          [externalError]="getExternalError(employeeForm.lastNames())"
+          ngDefaultControl />
+        <ui-input
+          label="CURP" 
+          name="curp" 
+          maxlength="18" 
+          hint="Unique Population Registry Code"
+          [required]="true"
+          [field]="employeeForm.curp"
+          [externalError]="getExternalError(employeeForm.curp())"
+          ngDefaultControl />
+         <ui-input 
+          label="RFC" 
+          name="rfc" 
+          maxlength="13" 
+          hint="Federal Taxpayer Registry"
+          [required]="true"
+          [field]="employeeForm.rfc"
+          [externalError]="getExternalError(employeeForm.rfc())"
+          ngDefaultControl />
+        <ui-autocomplete 
+          label="Nationality" 
+          name="nationality" 
+          placeholder="Select a nationality"
+          [options]="NATIONALITY_OPTIONS" 
+          [field]="employeeForm.nationality" 
+          ngDefaultControl />
+        <ui-datepicker 
+          name="birthDate" 
+          [textOptions]="BIRTH_DATE_TEXT_OPTIONS" 
+          [field]="employeeForm.birthDate"
+          ngDefaultControl />
+    </section>
+
+    <section>
+        <ui-input
+          label="Email" 
+          name="email" 
+          type="email"
+          [field]="employeeForm.email"
+          [externalError]="getExternalError(employeeForm.email())"
+          ngDefaultControl />
+        <ui-input 
+          label="Phone" 
+          name="phone" 
+          type="tel" 
+          [field]="employeeForm.phone"
+          [externalError]="getExternalError(employeeForm.phone())"
+          ngDefaultControl />
+        <ui-select 
+          label="Country" 
+          name="country" 
+          [options]="COUNTRY_OPTIONS" 
+          [field]="employeeForm.country"
+          ngDefaultControl />
+        <ui-autocomplete 
+          label="City" 
+          name="city" 
+          placeholder="Select a city" 
+          [options]="CITY_OPTIONS"
+          [field]="employeeForm.city" 
+          ngDefaultControl />
+    </section>
+    <section>
+        <ui-radiobutton
+          direction="column"
+          label="Contract Type"
+          name="contractType"
+          [options]="CONTRACT_TYPE_OPTIONS"
+          [field]="employeeForm.contractType" ngDefaultControl />
+        <ui-select 
+          label="Role"
+          name="role"
+          [options]="ROLE_OPTIONS"
+          [field]="employeeForm.role"
+          ngDefaultControl />
+        <ui-datepicker 
+          name="startDate"
+          [textOptions]="START_DATE_TEXT_OPTIONS"
+          [field]="employeeForm.startDate"
+          ngDefaultControl />
+    </section>
+
+    <section>
+        <ui-datepicker
+          name="availabilityRange"
+          date-type="range"
+          [textOptions]="AVAILABILITY_RANGE_TEXT_OPTIONS"
+          [field]="employeeForm.availabilityRange" ngDefaultControl />
+        <ui-radiobutton
+          label="Shift"
+          name="shift"
+          [options]="SHIFT_OPTIONS"
+          [field]="employeeForm.shift"
+          ngDefaultControl />
+    </section>
+
+    <section>
+        <ui-checkbox
+          label="Medical Insurance"
+          name="medicalInsurance"
+          [field]="employeeForm.medicalInsurance"
+          ngDefaultControl />
+        <ui-checkbox
+          label="Remote Work"
+          name="remoteWork"
+          [field]="employeeForm.remoteWork"
+          ngDefaultControl />
+        <ui-checkbox
+          label="Bonuses"
+          name="bonus"
+          [field]="employeeForm.bonus"
+          ngDefaultControl />
+    </section>
+
+    <section>
+        <ui-textarea
+          label="Comments"
+          name="comments"
+          maxlength="300"
+          placeholder="Relevant additional information"
+          [field]="employeeForm.comments"
+          ngDefaultControl />
+    </section>
+
+    <div class="employee-form__buttons">
+        <ui-button color="primary" label="Set Values" (buttonClick)="onSetValues()"/>
+        <ui-button color="secondary" label="Set Incorrect Values" (buttonClick)="onSetIncorrectValues()" />
+        <ui-button color="secondary" [label]="showFormData ? 'Hide Current Data' : 'View Current Data'" (buttonClick)="onViewData()" />
+        <ui-button color="secondary" label="View Form State" (buttonClick)="onViewFormState()" />
+        <ui-button color="success" button-type="submit" label="Save Employee" [disabled]="employeeForm().invalid()" />
+        <ui-button color="secondary" label="Deactivate" />
+        <ui-button color="tertiary" label="Reset" (buttonClick)="onReset()"/>
+    </div>
+
+    <pre *ngIf="showFormData">{{ formDataJson() }}</pre>
+
+</form>
