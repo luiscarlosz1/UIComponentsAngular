@@ -6,7 +6,9 @@ UIComponentsAngular is an Angular application designed as an example and foundat
 
 - **Employee Management:** Form and table for employee registration and visualization.
 - **Custom Components:** Integration of Stencil components (buttons, inputs, tables, selectors, datepickers, etc.).
-- **Customizable Themes:** Service to switch the application's visual theme.
+- **Form-Associated Inputs:** All custom input components are fully form-associated, supporting native Angular forms and validation, and adapting their appearance and behavior to the form state.
+- **Adaptive Inputs:** Inputs and controls automatically adapt to the selected theme and validation state, providing a seamless and accessible user experience.
+- **Customizable Themes:** The application includes a `ThemeService` that allows switching between multiple visual themes. All UI components, including Stencil-based inputs, adapt their styles dynamically according to the active theme.
 - **Modular Architecture:** Clear separation between components, services, models, and pages.
 - **SCSS Styles:** Use of SCSS for styles and FontAwesome compatibility.
 
@@ -57,7 +59,14 @@ src/
 
 ## Theme Customization
 
-The `ThemeService` allows switching between different visual themes defined in `theme.models.ts`.
+The `ThemeService` allows switching between different visual themes defined in `theme.models.ts`. All UI components, including Stencil-based inputs, automatically update their styles to match the selected theme, ensuring a consistent look and feel across the application.
+
+## Form-Associated and Adaptive Inputs
+
+All custom input components (such as `<ui-input>`, `<ui-select>`, `<ui-datepicker>`, etc.) are fully form-associated, supporting Angular's reactive and template-driven forms. They:
+- Integrate natively with Angular form controls and validation.
+- Adapt their appearance and feedback based on validation state (e.g., error, success).
+- Dynamically update their styles to match the active theme, providing a seamless and accessible user experience.
 
 ## Contribution
 
