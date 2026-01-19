@@ -1,77 +1,117 @@
+
 # UIComponentsAngular
 
-UIComponentsAngular is an Angular application designed as an example and foundation for employee management, using a modular architecture and custom components. The project integrates a Stencil-based component library and leverages Angular Signals for reactive state management.
+UIComponentsAngular is a production-grade Angular 21 application that demonstrates how to build a modern, scalable UI layer using a Stencil-based Design System, Form-Associated Web Components, and Angular Signals.
 
-## Main Features
+This project goes beyond a simple demo: it serves as a reference implementation for integrating enterprise-level Web Components into Angular applications while preserving native form behavior, validation, accessibility, and theming.
 
-- **Employee Management:** Form and table for employee registration and visualization.
-- **Custom Components:** Integration of Stencil components (buttons, inputs, tables, selectors, datepickers, etc.).
-- **Form-Associated Inputs:** All custom input components are fully form-associated, supporting native Angular forms and validation, and adapting their appearance and behavior to the form state.
-- **Adaptive Inputs:** Inputs and controls automatically adapt to the selected theme and validation state, providing a seamless and accessible user experience.
-- **Customizable Themes:** The application includes a `ThemeService` that allows switching between multiple visual themes. All UI components, including Stencil-based inputs, adapt their styles dynamically according to the active theme.
-- **Modular Architecture:** Clear separation between components, services, models, and pages.
-- **SCSS Styles:** Use of SCSS for styles and FontAwesome compatibility.
+## Why this project matters
+
+This repository showcases real-world patterns that are rarely documented together:
+
+- **Native Angular forms working seamlessly with Form-Associated Web Components**
+- **A Design System consumed as a framework-agnostic UI layer**
+- **Theme switching without re-rendering or framework-specific styling hacks**
+- **Clean separation between application logic and UI primitives**
+
+It is intended as a learning, mentoring, and architectural reference, not just a visual demo.
+
+
+## Key Capabilities
+
+### Employee Management Flow
+- Fully functional employee creation form.
+- Data visualization through a configurable table.
+- Realistic fields, validations, and UI states.
+
+### Design System Integration (Stencil)
+- Consumption of custom Web Components (`ui-input`, `ui-select`, `ui-datepicker`, `ui-table`, `ui-button`, etc.).
+- Components are framework-agnostic and reusable across Angular, React, or plain HTML.
+- Angular bindings generated via `@stencil/angular-output-target`.
+
+### Form-Associated Custom Elements
+All input components are:
+- Form-associated via `ElementInternals`
+- Compatible with Angular Reactive Forms and Template-driven Forms
+- Fully synchronized with:
+  - touched
+  - dirty
+  - disabled
+  - valid / invalid
+- Capable of triggering native form submission and validation flows.
+
+### Adaptive & Accessible Inputs
+Inputs react automatically to:
+- Validation state (error, success, default)
+- Disabled and readonly modes
+- Accessibility is preserved using native form semantics.
+
+### Signal-Driven State Management
+Angular Signals are used for:
+- Form state introspection
+- UI updates without unnecessary re-rendering
+- No external state libraries required.
+
+### Dynamic Theming
+- Centralized `ThemeService`
+- Theme tokens applied via CSS variables
+- Instant theme switching without component reinitialization
+- Stencil components adapt automatically to theme changes.
+
 
 ## Project Structure
-
 ```
 src/
   app/
     components/
-      employee-form/      # Employee form
-      employee-table/     # Employee table
+      employee-form/        # Form with form-associated WC
+      employee-table/       # Data visualization
     layouts/
-      header/             # Application header
-    models/               # Data models (employee, theme)
+      header/               # Application shell
+    models/
+      employee.model.ts
+      theme.model.ts
     pages/
-      dashboard/          # Main page with form and table
+      dashboard/            # Main composition page
     services/
-      theme.service.ts    # Theme service
-  index.html              # Main entry point
-  main.ts                 # Angular bootstrap
-  styles.scss             # Global styles
+      theme.service.ts      # Theme orchestration
+  styles.scss               # Global styles and tokens
+  main.ts                   # Angular bootstrap
 ```
 
-## Installation
 
-1. Clone the repository.
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the application:
-   ```
-   npm start
-   ```
-4. Open `http://localhost:4200` in your browser.
-
-## Available Scripts
-
-- `npm start`: Starts the development server.
-- `npm run build`: Builds the application for production.
-- `npm test`: Runs unit tests.
-
-## Main Dependencies
-
-- Angular 21+
-- Stencil (component-library, stencil-library)
+## Tech Stack
+- Angular 21
+- StencilJS (Design System)
+- Form-Associated Custom Elements
+- Angular Signals
+- SCSS + CSS Variables
 - FontAwesome
 
-## Theme Customization
+## What this project is (and is not)
 
-The `ThemeService` allows switching between different visual themes defined in `theme.models.ts`. All UI components, including Stencil-based inputs, automatically update their styles to match the selected theme, ensuring a consistent look and feel across the application.
+**This project is:**
+- A reference for integrating Web Components into Angular properly
+- A mentoring and learning tool
+- A base for future enterprise-grade applications
 
-## Form-Associated and Adaptive Inputs
+**This project is not:**
+- A UI template
+- A CRUD-only demo
+- A framework-locked solution
 
-All custom input components (such as `<ui-input>`, `<ui-select>`, `<ui-datepicker>`, etc.) are fully form-associated, supporting Angular's reactive and template-driven forms. They:
-- Integrate natively with Angular form controls and validation.
-- Adapt their appearance and feedback based on validation state (e.g., error, success).
-- Dynamically update their styles to match the active theme, providing a seamless and accessible user experience.
+## Installation & Usage
+```bash
+npm install
+npm start
+```
+Open: http://localhost:4200
 
-## Contribution
 
-Contributions are welcome. Please open an issue or pull request for suggestions or improvements.
+## License & Purpose
 
-## License
-
-This project is private and intended for mentoring purposes.
+This repository is private and intended for:
+- Technical mentoring
+- Architectural exploration
+- Design System validation
+- Professional portfolio and knowledge sharing
