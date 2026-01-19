@@ -1,4 +1,4 @@
-import { Component, Input, CUSTOM_ELEMENTS_SCHEMA, signal, computed } from '@angular/core';
+import { Component, Input, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeFormModel } from '../../models/employee-form.models';
 
@@ -12,7 +12,6 @@ export interface UiTableHeader {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './employee-table.component.html',
-  styleUrls: ['./employee-table.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EmployeeTableComponent {
@@ -20,20 +19,20 @@ export class EmployeeTableComponent {
   filter = signal('');
 
   employeeHeaders: UiTableHeader[] = [
-    { field: 'names', text: 'Nombres' },
-    { field: 'lastNames', text: 'Apellidos' },
-    { field: 'email', text: 'Correo electrónico' },
-    { field: 'role', text: 'Rol' },
-    { field: 'country', text: 'País' },
-    { field: 'city', text: 'Ciudad' },
-    { field: 'contractType', text: 'Tipo de contrato' },
-    { field: 'shift', text: 'Turno' },
-    { field: 'medicalInsurance', text: 'Seguro médico' },
-    { field: 'remoteWork', text: 'Trabajo remoto' },
-    { field: 'bonus', text: 'Bonificaciones' },
-    { field: 'startDate', text: 'Fecha de ingreso' },
-    { field: 'birthDate', text: 'Fecha de nacimiento' },
-    { field: 'availabilityRange', text: 'Disponibilidad' },
-    { field: 'comments', text: 'Observaciones' }
+    { field: 'names', text: 'First Name' },
+    { field: 'lastNames', text: 'Last Name' },
+    { field: 'email', text: 'Email' },
+    { field: 'role', text: 'Role' },
+    { field: 'country', text: 'Country' },
+    { field: 'city', text: 'City' },
+    { field: 'contractType', text: 'Contract Type' },
+    { field: 'shift', text: 'Shift' },
+    { field: 'medicalInsurance', text: 'Medical Insurance' },
+    { field: 'remoteWork', text: 'Remote Work' },
+    { field: 'bonus', text: 'Bonus' },
+    { field: 'startDate', text: 'Start Date' },
+    { field: 'birthDate', text: 'Birth Date' },
+    { field: 'availabilityRange', text: 'Availability' },
+    { field: 'comments', text: 'Comments' }
   ];
 }
