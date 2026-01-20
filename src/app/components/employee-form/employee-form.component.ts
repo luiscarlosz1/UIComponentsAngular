@@ -76,7 +76,7 @@ export class EmployeeFormComponent {
 
   getExternalError(field: FieldState<any>): string | undefined {
     if (!field.invalid()) return;
-    
+
     const errors = field.errors();
     if (!errors.length) return;
 
@@ -90,13 +90,20 @@ export class EmployeeFormComponent {
   }
 
   onViewFormState() {
-    console.log('Current form state valid:', this.employeeForm().valid());
-    console.log('Current names field valid:', this.employeeForm.names().valid());
-    console.log('Current lastname field valid:', this.employeeForm.lastNames().valid());
-    console.log('Current curp field valid:', this.employeeForm.curp().valid());
-    console.log('Current rfc field valid:', this.employeeForm.rfc().valid());
-    console.log('Current email field valid:', this.employeeForm.email().valid());
-    console.log('Current phone field valid:', this.employeeForm.phone().valid());
+    Object.entries(this.employeeForm).forEach(([key, value]) => {
+      if (typeof value === 'function') {
+        const state = value();
+        if ('valid' in state) {
+          console.log(key, {
+            valid: state.valid(),
+            invalid: state.invalid(),
+            touched: state.touched(),
+            dirty: state.dirty(),
+            errors: state.errors()
+          });
+        }
+      }
+    });
   }
 
   onSubmit(event: Event) {
@@ -130,6 +137,4 @@ export class EmployeeFormComponent {
     this.employeeFormModel.set(this.emptyEmployeeFormModel);
     this.showFormData = false;
   }
-
-
 }
