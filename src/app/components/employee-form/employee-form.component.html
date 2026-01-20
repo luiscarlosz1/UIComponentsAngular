@@ -147,6 +147,6 @@
         <ui-button color="tertiary" label="Reset" (buttonClick)="onReset()"/>
     </div>
 
-    <pre *ngIf="showFormData">{{ formDataJson() }}</pre>
+    @if (showFormData) { <pre>{{ formDataJson() }}</pre> }
 
 </form>

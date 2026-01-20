@@ -76,8 +76,7 @@ export class EmployeeFormComponent {
 
   getExternalError(field: FieldState<any>): string | undefined {
     if (!field.invalid()) return;
-    if (!field.touched()) return;
-
+    
     const errors = field.errors();
     if (!errors.length) return;
 
@@ -131,5 +130,6 @@ export class EmployeeFormComponent {
     this.employeeFormModel.set(this.emptyEmployeeFormModel);
     this.showFormData = false;
   }
+
 
 }
