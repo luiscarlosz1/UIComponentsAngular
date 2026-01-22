@@ -1,9 +1,8 @@
 
 # UIComponentsAngular
 
-UIComponentsAngular is a production-grade Angular 21 application that demonstrates how to build a modern, scalable UI layer using a Stencil-based Design System, Form-Associated Web Components, and Angular Signals.
 
-This project goes beyond a simple demo: it serves as a reference implementation for integrating enterprise-level Web Components into Angular applications while preserving native form behavior, validation, accessibility, and theming.
+UIComponentsAngular is an Angular 21 example project that demonstrates how to integrate a Stencil-based Design System, Form-Associated Web Components, and Angular Signals into a modern application. It serves as a practical reference for implementing reusable, accessible components with native form and theming support in Angular.
 
 ## Why this project matters
 
@@ -12,10 +11,6 @@ This repository showcases real-world patterns that are rarely documented togethe
 - **Native Angular forms working seamlessly with Form-Associated Web Components**
 - **A Design System consumed as a framework-agnostic UI layer**
 - **Theme switching without re-rendering or framework-specific styling hacks**
-- **Clean separation between application logic and UI primitives**
-
-It is intended as a learning, mentoring, and architectural reference, not just a visual demo.
-
 
 ## Key Capabilities
 
