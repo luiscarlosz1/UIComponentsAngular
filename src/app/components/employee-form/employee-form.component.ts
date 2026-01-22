@@ -119,6 +119,21 @@ export class EmployeeFormComponent {
       lastNames: 'Pérez Gómez',
       curp: 'PEGA800101HDFRZN09',
       rfc: 'PEGA800101XXX',
+      nationality: 'mexican',
+      birthDate: '01/01/1994',
+      email: 'juan.perez@example.com',
+      phone: '5551234567',
+      country: 'mx',
+      city: 'cdmx',
+      contractType: 'part_time',
+      role: 'qa',
+      startDate: '01/01/2024',
+      availabilityRange: '01/01/2024|31/12/2024',
+      shift: 'night',
+      medicalInsurance: true,
+      remoteWork: true,
+      bonus: true,
+      comments: 'Empleado de ejemplo'
     }));
   }
 
@@ -128,7 +143,9 @@ export class EmployeeFormComponent {
       curp: 'INVALIDCURP',
       rfc: 'SHORT',
       email: 'invalidEmailFormat',
-      phone: '2123'
+      phone: '2123',
+      birthDate: '1990-01-01',
+      startDate: '2024-01-01',
     }));
   }
 

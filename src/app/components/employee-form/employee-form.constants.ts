@@ -59,5 +59,5 @@ export const START_DATE_TEXT_OPTIONS = {
 export const AVAILABILITY_RANGE_TEXT_OPTIONS = {
     startLabel: 'From',
     endLabel: 'To',
-    separator: '—',
+    separator: '-',
 };
