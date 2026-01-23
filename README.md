@@ -2,7 +2,7 @@
 # UIComponentsAngular
 
 
-UIComponentsAngular is an Angular 21 example project that demonstrates how to integrate a Stencil-based Design System, Form-Associated Web Components, and Angular Signals into a modern application. It serves as a practical reference for implementing reusable, accessible components with native form and theming support in Angular.
+UIComponentsAngular is an Angular 21 example project that demonstrates the real implementation of my own Design System through custom UIComponents. Several of these UIControls implement advanced features such as Angular Signals for state management and Form-Associated Custom Elements for native form compatibility. This app showcases how to integrate a full Design System—built with Stencil and extended with unique, reusable UIComponents—into a modern Angular application. It serves as a practical reference for building accessible, framework-agnostic components with native form and theming support in Angular, using your own design tokens, patterns, and atomic components.
 
 ## Why this project matters
 
