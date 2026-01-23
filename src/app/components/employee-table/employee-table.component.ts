@@ -1,10 +1,11 @@
-import { Component, Input, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeFormModel } from '../../models/employee-form.models';
 
 export interface UiTableHeader {
   field: string;
   text: string;
+  width?: string;
 }
 
 @Component({
@@ -15,14 +16,15 @@ export interface UiTableHeader {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EmployeeTableComponent {
-  @Input() employees: EmployeeFormModel[] = [];
-  filter = signal('');
+  employees = input<EmployeeFormModel[]>([]);
+  edit = output<EmployeeFormModel>();
+  delete = output<string>();
 
   employeeHeaders: UiTableHeader[] = [
-    { field: 'names', text: 'First Name' },
-    { field: 'lastNames', text: 'Last Name' },
-    { field: 'email', text: 'Email' },
-    { field: 'role', text: 'Role' },
+    { field: 'names', text: 'First Name', width: '170px' },
+    { field: 'lastNames', text: 'Last Name', width: '170px' },
+    { field: 'email', text: 'Email', width: '170px' },
+    { field: 'role', text: 'Role', width: '170px' },
     { field: 'country', text: 'Country' },
     { field: 'city', text: 'City' },
     { field: 'contractType', text: 'Contract Type' },
@@ -33,6 +35,34 @@ export class EmployeeTableComponent {
     { field: 'startDate', text: 'Start Date' },
     { field: 'birthDate', text: 'Birth Date' },
     { field: 'availabilityRange', text: 'Availability' },
-    { field: 'comments', text: 'Comments' }
+    { field: 'comments', text: 'Comments' },
+    { field: 'actions', text: 'Actions', width: '200px' }
   ];
+
+  onEdit(row: EmployeeFormModel) {
+    this.edit.emit(row);
+  }
+
+  onDelete(row: EmployeeFormModel) {
+    this.delete.emit(row.curp);
+  }
+
+  actionCellTemplate = (_: any, row: EmployeeFormModel) => {
+    const container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.gap = '8px';
+
+    const btnEdit = document.createElement('ui-button');
+    btnEdit.label = 'Edit';
+    btnEdit.addEventListener('buttonClick', () => this.onEdit(row));
+
+    const btnDelete = document.createElement('ui-button');
+    btnDelete.label = 'Delete';
+    btnDelete.color = 'secondary';
+    btnDelete.addEventListener('buttonClick', () => this.onDelete(row));
+
+    container.appendChild(btnEdit);
+    container.appendChild(btnDelete);
+    return container;
+  };
 }

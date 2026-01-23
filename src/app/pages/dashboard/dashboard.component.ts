@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { HeaderComponent } from '../../layouts/header/header.component';
 import { EmployeeFormComponent } from '../../components/employee-form/employee-form.component';
 import { EmployeeTableComponent } from '../../components/employee-table/employee-table.component';
@@ -10,8 +10,10 @@ import { EmployeeFormModel } from '../../models/employee-form.models';
   imports: [HeaderComponent, EmployeeFormComponent, EmployeeTableComponent]
 })
 export class DashboardComponent {
-  employees: EmployeeFormModel[] = [
+  selectedEmployee = signal<EmployeeFormModel | null>(null);
+  employees = signal<EmployeeFormModel[]>([
     {
+      id: 1,
       names: 'Juan',
       lastNames: 'Pérez',
       curp: 'JUAP800101HDFRRN09',
@@ -33,6 +35,7 @@ export class DashboardComponent {
       comments: 'Empleado destacado.'
     },
     {
+      id: 2,
       names: 'Ana',
       lastNames: 'García',
       curp: 'AANG900202MDFRRL05',
@@ -53,5 +56,27 @@ export class DashboardComponent {
       bonus: false,
       comments: ''
     }
-  ];
+  ]);
+
+  onEdit(employee: EmployeeFormModel) {
+    this.selectedEmployee.set(employee);
+  }
+
+  onSave(employee: EmployeeFormModel) {
+    this.employees.update(emps => {
+
+      // EDIT
+      if (employee.id != null) return emps.map(e => e.id === employee.id ? { ...employee } : e);
+      // CREATE
+      const nextId = emps.length > 0 ? Math.max(...emps.map(e => e.id ?? 0)) + 1 : 1;
+
+      return [...emps, { ...employee, id: nextId }];
+    });
+
+    this.selectedEmployee.set(null);
+  }
+
+  onDelete(curp: string) {
+    this.employees.update(emps => emps.filter(e => e.curp !== curp));
+  }
 }

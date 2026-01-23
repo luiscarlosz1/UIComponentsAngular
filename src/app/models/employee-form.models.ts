@@ -1,4 +1,6 @@
 export interface EmployeeFormModel {
+ id?: number;
+
   names: string;
   lastNames: string;
   curp: string;

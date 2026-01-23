@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, signal, computed } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, signal, computed, model, effect, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -35,7 +35,10 @@ export class EmployeeFormComponent {
   AVAILABILITY_RANGE_TEXT_OPTIONS = AVAILABILITY_RANGE_TEXT_OPTIONS;
 
   showFormData = signal(false);
+  save = output<EmployeeFormModel>();
   formDataJson = computed(() => this.showFormData() ? JSON.stringify(this.employeeFormModel(), null, 2) : '');
+  employee = model<EmployeeFormModel | null>(null);
+  
   emptyEmployeeFormModel: EmployeeFormModel = {
     names: '',
     lastNames: '',
@@ -74,6 +77,18 @@ export class EmployeeFormComponent {
     pattern(schema.rfc, /^[A-Z]{4}\d{6}[A-Z0-9]{3}$/, { message: 'RFC format is invalid' });
   });
 
+  private syncEffect = effect(() => {
+    const employee = this.employee();
+
+    if (employee) {
+      this.employeeFormModel.set({ ...employee });
+      this.employeeForm().reset();
+    } else {
+      this.employeeFormModel.set(this.emptyEmployeeFormModel);
+      this.employeeForm().reset();
+    }
+  });
+
   getExternalError(field: FieldState<any>): string | undefined {
     if (!field.invalid()) return;
 
@@ -110,6 +125,7 @@ export class EmployeeFormComponent {
     event.preventDefault();
     const payload = this.employeeFormModel();
     console.log('Signal form payload:', payload);
+    this.save.emit(this.employeeFormModel());
   }
 
   onSetValues() {

@@ -1,3 +1,10 @@
 <app-header></app-header>
-<app-employee-form></app-employee-form>
-<app-employee-table [employees]="employees"></app-employee-table>
+<app-employee-form
+  [employee]="selectedEmployee()"
+  (save)="onSave($event)">
+</app-employee-form>
+<app-employee-table
+  [employees]="employees()"
+  (edit)="onEdit($event)"
+  (delete)="onDelete($event)">
+</app-employee-table>
