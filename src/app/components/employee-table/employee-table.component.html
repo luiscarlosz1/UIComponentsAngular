@@ -1,8 +1,6 @@
-<div style="max-width: 100%; overflow: auto; border: 1px solid #ccc;">
-	<ui-table-manager
-		[data]="employees()"
-		[headers]="employeeHeaders"
-		[stickyColumns]="{ left: 4, right: 1 }"
-		[templates]="{ cell: { actions: actionCellTemplate.bind(this) } }"
-	/>
-</div>
+<ui-table-manager
+  style="max-width: 100%; overflow: auto;"
+  [data]="employees()"
+  [headers]="employeeHeaders"
+  [stickyColumns]="{ left: 4, right: 1 }"
+  [templates]="{ cell: { actions: actionCellTemplate.bind(this) } }" />
