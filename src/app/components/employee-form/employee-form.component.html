@@ -138,13 +138,13 @@
     <div class="employee-form__buttons">
         <ui-button color="primary" label="Set Values" (buttonClick)="onSetValues()"/>
         <ui-button color="secondary" label="Set Incorrect Values" (buttonClick)="onSetIncorrectValues()" />
-        <ui-button color="secondary" [label]="showFormData ? 'Hide Current Data' : 'View Current Data'" (buttonClick)="onViewData()" />
+        <ui-button color="secondary" [label]="showFormData() ? 'Hide Current Data' : 'View Current Data'" (buttonClick)="onViewData()" />
         <ui-button color="secondary" label="View Form State" (buttonClick)="onViewFormState()" />
         <ui-button color="success" button-type="submit" label="Save Employee" [disabled]="employeeForm().invalid()" />
         <ui-button color="secondary" label="Deactivate" />
         <ui-button color="tertiary" label="Reset" (buttonClick)="onReset()"/>
     </div>
 
-    @if (showFormData) { <pre>{{ formDataJson() }}</pre> }
+    @if (showFormData()) { <pre>{{ formDataJson() }}</pre> }
 
 </form>

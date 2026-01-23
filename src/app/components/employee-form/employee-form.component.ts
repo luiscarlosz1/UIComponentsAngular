@@ -34,8 +34,8 @@ export class EmployeeFormComponent {
   START_DATE_TEXT_OPTIONS = START_DATE_TEXT_OPTIONS;
   AVAILABILITY_RANGE_TEXT_OPTIONS = AVAILABILITY_RANGE_TEXT_OPTIONS;
 
-  showFormData = false;
-  formDataJson = computed(() => this.showFormData ? JSON.stringify(this.employeeFormModel(), null, 2) : '');
+  showFormData = signal(false);
+  formDataJson = computed(() => this.showFormData() ? JSON.stringify(this.employeeFormModel(), null, 2) : '');
   emptyEmployeeFormModel: EmployeeFormModel = {
     names: '',
     lastNames: '',
@@ -86,7 +86,7 @@ export class EmployeeFormComponent {
   }
 
   onViewData() {
-    this.showFormData = !this.showFormData;
+    this.showFormData.update(value => !value);
   }
 
   onViewFormState() {
@@ -152,6 +152,6 @@ export class EmployeeFormComponent {
   onReset() {
     this.employeeForm().reset();
     this.employeeFormModel.set(this.emptyEmployeeFormModel);
-    this.showFormData = false;
+    this.showFormData.set(false);
   }
 }
