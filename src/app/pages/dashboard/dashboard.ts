@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { HeaderComponent } from '../../layouts/header/header.component';
-import { EmployeeFormComponent } from '../../components/employee-form/employee-form.component';
-import { EmployeeTableComponent } from '../../components/employee-table/employee-table.component';
+import { HeaderComponent } from '../../layouts/header/header';
+import { EmployeeFormComponent } from '../../components/employee-form/employee-form';
+import { EmployeeTableComponent } from '../../components/employee-table/employee-table';
 import { EmployeeFormModel } from '../../models/employee-form.models';
 
 @Component({
