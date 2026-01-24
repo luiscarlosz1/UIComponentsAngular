@@ -3,7 +3,7 @@
         <ui-input 
           label="First Name" 
           name="names"
-          [field]="employeeForm.names" 
+          [formField]="employeeForm.names" 
           [required]="true"
           [externalError]="getExternalError(employeeForm.names())"
           ngDefaultControl />
@@ -11,7 +11,7 @@
           label="Last Name" 
           name="lastNames" 
           [required]="true"
-          [field]="employeeForm.lastNames"
+          [formField]="employeeForm.lastNames"
           [externalError]="getExternalError(employeeForm.lastNames())"
           ngDefaultControl />
         <ui-input
@@ -20,7 +20,7 @@
           maxlength="18" 
           hint="Unique Population Registry Code"
           [required]="true"
-          [field]="employeeForm.curp"
+          [formField]="employeeForm.curp"
           [externalError]="getExternalError(employeeForm.curp())"
           ngDefaultControl />
          <ui-input 
@@ -29,7 +29,7 @@
           maxlength="13" 
           hint="Federal Taxpayer Registry"
           [required]="true"
-          [field]="employeeForm.rfc"
+          [formField]="employeeForm.rfc"
           [externalError]="getExternalError(employeeForm.rfc())"
           ngDefaultControl />
         <ui-autocomplete 
@@ -37,12 +37,12 @@
           name="nationality" 
           placeholder="Select a nationality"
           [options]="NATIONALITY_OPTIONS" 
-          [field]="employeeForm.nationality" 
+          [formField]="employeeForm.nationality" 
           ngDefaultControl />
         <ui-datepicker 
           name="birthDate" 
           [textOptions]="BIRTH_DATE_TEXT_OPTIONS" 
-          [field]="employeeForm.birthDate"
+          [formField]="employeeForm.birthDate"
           ngDefaultControl />
     </section>
 
@@ -50,28 +50,28 @@
         <ui-input
           label="Email" 
           name="email" 
-          [field]="employeeForm.email"
+          [formField]="employeeForm.email"
           [externalError]="getExternalError(employeeForm.email())"
           ngDefaultControl />
         <ui-input 
           label="Phone" 
           name="phone" 
           type="tel" 
-          [field]="employeeForm.phone"
+          [formField]="employeeForm.phone"
           [externalError]="getExternalError(employeeForm.phone())"
           ngDefaultControl />
         <ui-select 
           label="Country" 
           name="country" 
           [options]="COUNTRY_OPTIONS" 
-          [field]="employeeForm.country"
+          [formField]="employeeForm.country"
           ngDefaultControl />
         <ui-autocomplete 
           label="City" 
           name="city" 
           placeholder="Select a city" 
           [options]="CITY_OPTIONS"
-          [field]="employeeForm.city" 
+          [formField]="employeeForm.city" 
           ngDefaultControl />
     </section>
 
@@ -80,17 +80,17 @@
           label="Contract Type"
           name="contractType"
           [options]="CONTRACT_TYPE_OPTIONS"
-          [field]="employeeForm.contractType" ngDefaultControl />
+          [formField]="employeeForm.contractType" ngDefaultControl />
         <ui-select 
           label="Role"
           name="role"
           [options]="ROLE_OPTIONS"
-          [field]="employeeForm.role"
+          [formField]="employeeForm.role"
           ngDefaultControl />
         <ui-datepicker 
           name="startDate"
           [textOptions]="START_DATE_TEXT_OPTIONS"
-          [field]="employeeForm.startDate"
+          [formField]="employeeForm.startDate"
           ngDefaultControl />
     </section>
 
@@ -99,12 +99,12 @@
           name="availabilityRange"
           date-type="range"
           [textOptions]="AVAILABILITY_RANGE_TEXT_OPTIONS"
-          [field]="employeeForm.availabilityRange" ngDefaultControl />
+          [formField]="employeeForm.availabilityRange" ngDefaultControl />
         <ui-radiobutton
           label="Shift"
           name="shift"
           [options]="SHIFT_OPTIONS"
-          [field]="employeeForm.shift"
+          [formField]="employeeForm.shift"
           ngDefaultControl />
     </section>
 
@@ -112,17 +112,17 @@
         <ui-checkbox
           label="Medical Insurance"
           name="medicalInsurance"
-          [field]="employeeForm.medicalInsurance"
+          [formField]="employeeForm.medicalInsurance"
           ngDefaultControl />
         <ui-checkbox
           label="Remote Work"
           name="remoteWork"
-          [field]="employeeForm.remoteWork"
+          [formField]="employeeForm.remoteWork"
           ngDefaultControl />
         <ui-checkbox
           label="Bonuses"
           name="bonus"
-          [field]="employeeForm.bonus"
+          [formField]="employeeForm.bonus"
           ngDefaultControl />
     </section>
 
@@ -132,7 +132,7 @@
           name="comments"
           maxlength="300"
           placeholder="Relevant additional information"
-          [field]="employeeForm.comments"
+          [formField]="employeeForm.comments"
           ngDefaultControl />
     </section>
 

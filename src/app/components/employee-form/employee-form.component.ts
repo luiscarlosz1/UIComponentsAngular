@@ -13,12 +13,12 @@ import {
   AVAILABILITY_RANGE_TEXT_OPTIONS
 } from './employee-form.constants';
 import { EmployeeFormModel } from '../../models/employee-form.models';
-import { email, Field, FieldState, form, minLength, pattern, required } from '@angular/forms/signals';
+import { email, FormField, FieldState, form, minLength, pattern, required } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-employee-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, Field],
+  imports: [CommonModule, FormsModule, FormField],
   templateUrl: './employee-form.component.html',
   styleUrls: ['./employee-form.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -38,7 +38,7 @@ export class EmployeeFormComponent {
   save = output<EmployeeFormModel>();
   formDataJson = computed(() => this.showFormData() ? JSON.stringify(this.employeeFormModel(), null, 2) : '');
   employee = model<EmployeeFormModel | null>(null);
-  
+
   emptyEmployeeFormModel: EmployeeFormModel = {
     names: '',
     lastNames: '',
