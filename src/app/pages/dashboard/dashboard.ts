@@ -6,7 +6,7 @@ import { EmployeeFormModel } from '../../models/employee-form.models';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
+  templateUrl: './dashboard.html',
   imports: [HeaderComponent, EmployeeFormComponent, EmployeeTableComponent]
 })
 export class DashboardComponent {

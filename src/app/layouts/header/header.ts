@@ -4,8 +4,8 @@ import { Theme } from '../../models/theme.models';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './header.html',
+  styleUrls: ['./header.scss']
 })
 export class HeaderComponent {
   private themeService = inject(ThemeService);

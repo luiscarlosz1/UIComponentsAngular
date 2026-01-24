@@ -21,8 +21,8 @@ import { emailField, minLen, patternField, requiredField } from '../../shared/va
   selector: 'app-employee-form',
   standalone: true,
   imports: [CommonModule, FormsModule, FormField],
-  templateUrl: './employee-form.component.html',
-  styleUrls: ['./employee-form.component.scss'],
+  templateUrl: './employee-form.html',
+  styleUrls: ['./employee-form.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EmployeeFormComponent {

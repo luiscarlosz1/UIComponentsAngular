@@ -12,7 +12,7 @@ export interface UiTableHeader {
   selector: 'app-employee-table',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './employee-table.component.html',
+  templateUrl: './employee-table.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EmployeeTableComponent {
