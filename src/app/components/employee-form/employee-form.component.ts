@@ -13,7 +13,7 @@ import {
   AVAILABILITY_RANGE_TEXT_OPTIONS
 } from './employee-form.constants';
 import { EmployeeFormModel } from '../../models/employee-form.models';
-import { email, FormField, FieldState, form, minLength, pattern, required } from '@angular/forms/signals';
+import { email, FormField, FieldState, form, minLength, pattern, required, disabled } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-employee-form',
@@ -62,8 +62,10 @@ export class EmployeeFormComponent {
   }
 
   employeeFormModel = signal<EmployeeFormModel>(this.emptyEmployeeFormModel);
+  formIsDisabled = signal(false);
 
   employeeForm = form(this.employeeFormModel, (schema) => {
+    disabled(schema, () => this.formIsDisabled());
     required(schema.names, { message: 'Names are required' });
     required(schema.lastNames, { message: 'Last names are required' });
     required(schema.rfc, { message: 'RFC is required' });
@@ -163,6 +165,10 @@ export class EmployeeFormComponent {
       birthDate: '1990-01-01',
       startDate: '2024-01-01',
     }));
+  }
+
+  onDeactivate() {
+    this.formIsDisabled.update(v => !v);
   }
 
   onReset() {
