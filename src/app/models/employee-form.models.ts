@@ -6,7 +6,7 @@ export interface EmployeeFormModel {
   curp: string;
   rfc: string;
   nationality: string;
-  birthDate: Date | string;
+  birthDate: string;
 
   email: string;
   phone: string;
@@ -15,7 +15,7 @@ export interface EmployeeFormModel {
 
   contractType: string;
   role: string;
-  startDate: Date | string;
+  startDate: string;
 
   availabilityRange: string;
   shift: string;

@@ -12,8 +12,10 @@ import {
   START_DATE_TEXT_OPTIONS,
   AVAILABILITY_RANGE_TEXT_OPTIONS
 } from './employee-form.constants';
+import { CURP_PATTERN, RFC_PATTERN, DATE_DDMMYYYY_PATTERN } from '../../shared/validation/validation.patterns';
 import { EmployeeFormModel } from '../../models/employee-form.models';
-import { email, FormField, FieldState, form, minLength, pattern, required, disabled } from '@angular/forms/signals';
+import { FormField, FieldState, form, disabled } from '@angular/forms/signals';
+import { emailField, minLen, patternField, requiredField } from '../../shared/validation/validation.factories';
 
 @Component({
   selector: 'app-employee-form',
@@ -66,17 +68,23 @@ export class EmployeeFormComponent {
 
   employeeForm = form(this.employeeFormModel, (schema) => {
     disabled(schema, () => this.formIsDisabled());
-    required(schema.names, { message: 'Names are required' });
-    required(schema.lastNames, { message: 'Last names are required' });
-    required(schema.rfc, { message: 'RFC is required' });
-    required(schema.curp, { message: 'CURP is required' });
-    required(schema.email, { message: 'Email is required' });
-    email(schema.email, { message: 'Email format is invalid' });
-    minLength(schema.phone, 7, { message: 'Phone number must be at least 7 characters long' });
-    minLength(schema.rfc, 13, { message: 'RFC must be 13 characters long' });
-    minLength(schema.curp, 18, { message: 'CURP must be 18 characters long' });
-    pattern(schema.curp, /^[A-Z]{4}\d{6}[HM][A-Z]{5}\d{2}$/, { message: 'CURP format is invalid' });
-    pattern(schema.rfc, /^[A-Z]{4}\d{6}[A-Z0-9]{3}$/, { message: 'RFC format is invalid' });
+
+    requiredField('Names are required')(schema.names);
+    requiredField('Last names are required')(schema.lastNames);
+    requiredField('RFC is required')(schema.rfc);
+    requiredField('CURP is required')(schema.curp);
+    requiredField('Email is required')(schema.email);
+
+    emailField()(schema.email);
+
+    minLen(7, 'Phone number must be at least 7 characters')(schema.phone);
+    minLen(13, 'RFC must be 13 characters')(schema.rfc);
+    minLen(18, 'CURP must be 18 characters')(schema.curp);
+
+    patternField(CURP_PATTERN, 'CURP format is invalid')(schema.curp);
+    patternField(RFC_PATTERN, 'RFC format is invalid')(schema.rfc);
+    patternField(DATE_DDMMYYYY_PATTERN, 'Start Date format is invalid')(schema.startDate);
+    patternField(DATE_DDMMYYYY_PATTERN, 'Birth Date format is invalid')(schema.birthDate);
   });
 
   private syncEffect = effect(() => {

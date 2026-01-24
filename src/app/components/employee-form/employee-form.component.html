@@ -41,6 +41,7 @@
           ngDefaultControl />
         <ui-datepicker 
           name="birthDate" 
+          [externalError]="getExternalError(employeeForm.birthDate())"
           [textOptions]="BIRTH_DATE_TEXT_OPTIONS" 
           [formField]="employeeForm.birthDate"
           ngDefaultControl />
@@ -89,6 +90,7 @@
           ngDefaultControl />
         <ui-datepicker 
           name="startDate"
+          [externalError]="getExternalError(employeeForm.startDate())"
           [textOptions]="START_DATE_TEXT_OPTIONS"
           [formField]="employeeForm.startDate"
           ngDefaultControl />
