@@ -1,22 +1,19 @@
 <form class="employee-form" (submit)="onSubmit($event)">
     <section>
         <ui-input 
-          label="First Name" 
-          name="names"
+          label="First Name"
           [formField]="employeeForm.names" 
           [required]="true"
           [externalError]="getExternalError(employeeForm.names())"
           ngDefaultControl />
         <ui-input 
-          label="Last Name" 
-          name="lastNames" 
+          label="Last Name"
           [required]="true"
           [formField]="employeeForm.lastNames"
           [externalError]="getExternalError(employeeForm.lastNames())"
           ngDefaultControl />
         <ui-input
-          label="CURP" 
-          name="curp" 
+          label="CURP"
           maxlength="18" 
           hint="Unique Population Registry Code"
           [required]="true"
@@ -24,8 +21,7 @@
           [externalError]="getExternalError(employeeForm.curp())"
           ngDefaultControl />
          <ui-input 
-          label="RFC" 
-          name="rfc" 
+          label="RFC"
           maxlength="13" 
           hint="Federal Taxpayer Registry"
           [required]="true"
@@ -33,14 +29,12 @@
           [externalError]="getExternalError(employeeForm.rfc())"
           ngDefaultControl />
         <ui-autocomplete 
-          label="Nationality" 
-          name="nationality" 
+          label="Nationality"
           placeholder="Select a nationality"
           [options]="NATIONALITY_OPTIONS" 
           [formField]="employeeForm.nationality" 
           ngDefaultControl />
         <ui-datepicker 
-          name="birthDate" 
           [externalError]="getExternalError(employeeForm.birthDate())"
           [textOptions]="BIRTH_DATE_TEXT_OPTIONS" 
           [formField]="employeeForm.birthDate"
@@ -49,27 +43,23 @@
 
     <section>
         <ui-input
-          label="Email" 
-          name="email" 
+          label="Email"
           [formField]="employeeForm.email"
           [externalError]="getExternalError(employeeForm.email())"
           ngDefaultControl />
         <ui-input 
-          label="Phone" 
-          name="phone" 
+          label="Phone"
           type="tel" 
           [formField]="employeeForm.phone"
           [externalError]="getExternalError(employeeForm.phone())"
           ngDefaultControl />
         <ui-select 
           label="Country" 
-          name="country" 
           [options]="COUNTRY_OPTIONS" 
           [formField]="employeeForm.country"
           ngDefaultControl />
         <ui-autocomplete 
-          label="City" 
-          name="city" 
+          label="City"
           placeholder="Select a city" 
           [options]="CITY_OPTIONS"
           [formField]="employeeForm.city" 
@@ -79,17 +69,14 @@
     <section>
         <ui-radiobutton
           label="Contract Type"
-          name="contractType"
           [options]="CONTRACT_TYPE_OPTIONS"
           [formField]="employeeForm.contractType" ngDefaultControl />
         <ui-select 
           label="Role"
-          name="role"
           [options]="ROLE_OPTIONS"
           [formField]="employeeForm.role"
           ngDefaultControl />
-        <ui-datepicker 
-          name="startDate"
+        <ui-datepicker
           [externalError]="getExternalError(employeeForm.startDate())"
           [textOptions]="START_DATE_TEXT_OPTIONS"
           [formField]="employeeForm.startDate"
@@ -98,13 +85,11 @@
 
     <section>
         <ui-datepicker
-          name="availabilityRange"
           date-type="range"
           [textOptions]="AVAILABILITY_RANGE_TEXT_OPTIONS"
           [formField]="employeeForm.availabilityRange" ngDefaultControl />
         <ui-radiobutton
           label="Shift"
-          name="shift"
           [options]="SHIFT_OPTIONS"
           [formField]="employeeForm.shift"
           ngDefaultControl />
@@ -113,17 +98,14 @@
     <section>
         <ui-checkbox
           label="Medical Insurance"
-          name="medicalInsurance"
           [formField]="employeeForm.medicalInsurance"
           ngDefaultControl />
         <ui-checkbox
           label="Remote Work"
-          name="remoteWork"
           [formField]="employeeForm.remoteWork"
           ngDefaultControl />
         <ui-checkbox
           label="Bonuses"
-          name="bonus"
           [formField]="employeeForm.bonus"
           ngDefaultControl />
     </section>
@@ -131,7 +113,6 @@
     <section>
         <ui-textarea
           label="Comments"
-          name="comments"
           maxlength="300"
           placeholder="Relevant additional information"
           [formField]="employeeForm.comments"
