@@ -74,6 +74,9 @@ export class EmployeeFormComponent {
     requiredField('RFC is required')(schema.rfc);
     requiredField('CURP is required')(schema.curp);
     requiredField('Email is required')(schema.email);
+    requiredField('Role is required')(schema.role);
+    requiredField('Country is required')(schema.country);
+    requiredField('Birth Date is required')(schema.birthDate);
 
     emailField()(schema.email);
 

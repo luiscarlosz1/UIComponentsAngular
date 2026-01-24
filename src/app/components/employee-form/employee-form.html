@@ -28,13 +28,15 @@
           [formField]="employeeForm.rfc"
           [externalError]="getExternalError(employeeForm.rfc())"
           ngDefaultControl />
-        <ui-autocomplete 
+        <ui-autocomplete
+          [required]="true"
           label="Nationality"
           placeholder="Select a nationality"
           [options]="NATIONALITY_OPTIONS" 
           [formField]="employeeForm.nationality" 
           ngDefaultControl />
-        <ui-datepicker 
+        <ui-datepicker
+          [required]="true"
           [externalError]="getExternalError(employeeForm.birthDate())"
           [textOptions]="BIRTH_DATE_TEXT_OPTIONS" 
           [formField]="employeeForm.birthDate"
@@ -73,6 +75,7 @@
           [formField]="employeeForm.contractType" ngDefaultControl />
         <ui-select 
           label="Role"
+          [required]="true"
           [options]="ROLE_OPTIONS"
           [formField]="employeeForm.role"
           ngDefaultControl />
