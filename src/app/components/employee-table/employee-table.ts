@@ -1,12 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeFormModel } from '../../models/employee-form.models';
-
-export interface UiTableHeader {
-  field: string;
-  text: string;
-  width?: string;
-}
+import { UiTableHeader } from 'stencil-library';
 
 @Component({
   selector: 'app-employee-table',

@@ -46,6 +46,7 @@
     <section>
         <ui-input
           label="Email"
+          [required]="true"
           [formField]="employeeForm.email"
           [externalError]="getExternalError(employeeForm.email())"
           ngDefaultControl />
