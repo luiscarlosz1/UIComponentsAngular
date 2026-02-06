@@ -1,7 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeFormModel } from '../../models/employee-form.models';
-import { UiTableHeader } from 'stencil-library';
+import { UiTableHeader } from '@luiscarlosz1/stencil-library';
 
 @Component({
   selector: 'app-employee-table',
@@ -18,8 +18,8 @@ export class EmployeeTableComponent {
   employeeHeaders: UiTableHeader[] = [
     { field: 'names', text: 'First Name', width: '170px' },
     { field: 'lastNames', text: 'Last Name', width: '170px' },
-    { field: 'email', text: 'Email', width: '170px' },
     { field: 'role', text: 'Role', width: '170px' },
+    { field: 'email', text: 'Email' },
     { field: 'country', text: 'Country' },
     { field: 'city', text: 'City' },
     { field: 'contractType', text: 'Contract Type' },
