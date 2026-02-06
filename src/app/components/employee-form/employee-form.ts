@@ -185,6 +185,5 @@ export class EmployeeFormComponent {
   onReset() {
     this.employeeForm().reset();
     this.employeeFormModel.set(this.emptyEmployeeFormModel);
-    this.showFormData.set(false);
   }
 }
