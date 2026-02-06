@@ -35,7 +35,7 @@ export class ThemeService {
         // Surface
         '--ui-surface-primary': '#ffffff',
         '--ui-surface-secondary': '#3a4655',
-        '--ui-surface-hover': '#f6f6f6',
+        '--ui-surface-hover': '#6b6b6b',
 
         // Border
         '--ui-border-default': '#d9d9d9',
@@ -90,7 +90,7 @@ export class ThemeService {
         // Surface
         '--ui-surface-primary': '#ffffff',
         '--ui-surface-secondary': '#4e9e6d',
-        '--ui-surface-hover': '#f6f6f6',
+        '--ui-surface-hover': '#a6dcb2',
 
         // Border
         '--ui-border-default': '#d9d9d9',
@@ -145,7 +145,7 @@ export class ThemeService {
         // Surface - original values from the Design System
         '--ui-surface-primary': '#ffffff',
         '--ui-surface-secondary': '#197fd1',
-        '--ui-surface-hover': '#e9f5ff',
+        '--ui-surface-hover': '#6cbcff',
 
         // Border - original values from the Design System
         '--ui-border-default': '#d9d9d9',
@@ -201,7 +201,7 @@ export class ThemeService {
         // Surface
         '--ui-surface-primary': '#ffffff',
         '--ui-surface-secondary': '#5e44db',
-        '--ui-surface-hover': '#f7fafc',
+        '--ui-surface-hover': '#6a4ff5',
 
         // Border
         '--ui-border-default': '#e2e8f0',
@@ -257,7 +257,7 @@ export class ThemeService {
         // Surface
         '--ui-surface-primary': '#ffffff',
         '--ui-surface-secondary': '#d98009',
-        '--ui-surface-hover': '#f7fafc',
+        '--ui-surface-hover': '#ed8f0f',
 
         // Border
         '--ui-border-default': '#e2e8f0',
