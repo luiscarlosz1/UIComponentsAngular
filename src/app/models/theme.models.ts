@@ -43,16 +43,11 @@ export interface ThemeTokens {
   '--ui-status-danger': string;
 
   // Table
-  '--table-header-bg': string;
-  '--table-header-text': string;
-  '--table-header-border': string;
-  '--table-header-hover-bg': string;
-  '--table-body-bg': string;
-  '--table-row-bg': string;
-  '--table-row-hover-bg': string;
-  '--table-row-selected-bg': string;
-  '--table-row-border': string;
-  '--table-cell-text': string;
-  '--table-empty-text': string;
-  '--table-loading-text': string;
+  '--ui-table-surface-header': string;
+  '--ui-table-surface-header-interactive': string;
+  '--ui-table-surface-body': string;
+  '--ui-table-surface-row': string;
+  '--ui-table-surface-row-hover': string;
+  '--ui-table-surface-row-selected': string;
+  '--ui-table-surface-footer': string;
 }

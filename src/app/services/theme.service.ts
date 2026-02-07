@@ -49,18 +49,13 @@ export class ThemeService {
         '--ui-status-danger': '#c62828',
 
         // Table
-        '--table-header-bg': '#3a4655',
-        '--table-header-text': '#ffffff',
-        '--table-header-border': '#3a4655',
-        '--table-header-hover-bg': '#4f4f4f',
-        '--table-body-bg': '#ffffff',
-        '--table-row-bg': 'transparent',
-        '--table-row-hover-bg': '#f6f6f6',
-        '--table-row-selected-bg': '#3a4655',
-        '--table-row-border': '#eeeeee',
-        '--table-cell-text': '#4f4f4f',
-        '--table-empty-text': '#4f4f4f',
-        '--table-loading-text': '#4f4f4f'
+        '--ui-table-surface-header': '#3a4655',
+        '--ui-table-surface-header-interactive': '#4f4f4f',
+        '--ui-table-surface-body': '#ffffff',
+        '--ui-table-surface-row': 'transparent',
+        '--ui-table-surface-row-hover': '#f6f6f6',
+        '--ui-table-surface-row-selected': '#3a4655',
+        '--ui-table-surface-footer': '#3a4655'
       }
     },
     {
@@ -104,18 +99,13 @@ export class ThemeService {
         '--ui-status-danger': '#c62828',
 
         // Table
-        '--table-header-bg': '#4e9e6d',
-        '--table-header-text': '#ffffff',
-        '--table-header-border': '#4e9e6d',
-        '--table-header-hover-bg': '#a6dcb2',
-        '--table-body-bg': '#ffffff',
-        '--table-row-bg': 'transparent',
-        '--table-row-hover-bg': '#f6f6f6',
-        '--table-row-selected-bg': '#4e9e6d',
-        '--table-row-border': '#eeeeee',
-        '--table-cell-text': '#4f4f4f',
-        '--table-empty-text': '#4f4f4f',
-        '--table-loading-text': '#4f4f4f'
+        '--ui-table-surface-header': '#4e9e6d',
+        '--ui-table-surface-header-interactive': '#a6dcb2',
+        '--ui-table-surface-body': '#ffffff',
+        '--ui-table-surface-row': 'transparent',
+        '--ui-table-surface-row-hover': '#f6f6f6',
+        '--ui-table-surface-row-selected': '#4e9e6d',
+        '--ui-table-surface-footer': '#4e9e6d'
       }
     },
     {
@@ -159,18 +149,13 @@ export class ThemeService {
         '--ui-status-danger': '#c62828',
 
         // Table - original values from the Design System
-        '--table-header-bg': '#197fd1',
-        '--table-header-text': '#ffffff',
-        '--table-header-border': '#197fd1',
-        '--table-header-hover-bg': '#6cbcff',
-        '--table-body-bg': '#ffffff',
-        '--table-row-bg': 'transparent',
-        '--table-row-hover-bg': '#e9f5ff',
-        '--table-row-selected-bg': '#197fd1',
-        '--table-row-border': '#eeeeee',
-        '--table-cell-text': '#4f4f4f',
-        '--table-empty-text': '#6b6b6b',
-        '--table-loading-text': '#6b6b6b'
+        '--ui-table-surface-header': '#197fd1',
+        '--ui-table-surface-header-interactive': '#6cbcff',
+        '--ui-table-surface-body': '#ffffff',
+        '--ui-table-surface-row': 'transparent',
+        '--ui-table-surface-row-hover': '#e9f5ff',
+        '--ui-table-surface-row-selected': '#197fd1',
+        '--ui-table-surface-footer': '#197fd1'
       }
     },
     {
@@ -215,18 +200,13 @@ export class ThemeService {
         '--ui-status-danger': '#ef4444',
 
         // Table
-        '--table-header-bg': '#5e44db',
-        '--table-header-text': '#ffffff',
-        '--table-header-border': '#5e44db',
-        '--table-header-hover-bg': '#7b61ff',
-        '--table-body-bg': '#ffffff',
-        '--table-row-bg': 'transparent',
-        '--table-row-hover-bg': '#f3f0ff',
-        '--table-row-selected-bg': '#5e44db',
-        '--table-row-border': '#eeeeee',
-        '--table-cell-text': '#1a202c',
-        '--table-empty-text': '#4a5568',
-        '--table-loading-text': '#4a5568'
+        '--ui-table-surface-header': '#5e44db',
+        '--ui-table-surface-header-interactive': '#7b61ff',
+        '--ui-table-surface-body': '#ffffff',
+        '--ui-table-surface-row': 'transparent',
+        '--ui-table-surface-row-hover': '#f3f0ff',
+        '--ui-table-surface-row-selected': '#5e44db',
+        '--ui-table-surface-footer': '#5e44db'
       }
     },
     {
@@ -271,18 +251,13 @@ export class ThemeService {
         '--ui-status-danger': '#ef4444',
 
         // Table
-        '--table-header-bg': '#d98009',
-        '--table-header-text': '#ffffff',
-        '--table-header-border': '#d98009',
-        '--table-header-hover-bg': '#ff9f1c',
-        '--table-body-bg': '#ffffff',
-        '--table-row-bg': 'transparent',
-        '--table-row-hover-bg': '#fff5e6',
-        '--table-row-selected-bg': '#d98009',
-        '--table-row-border': '#eeeeee',
-        '--table-cell-text': '#1a202c',
-        '--table-empty-text': '#4a5568',
-        '--table-loading-text': '#4a5568'
+        '--ui-table-surface-header': '#d98009',
+        '--ui-table-surface-header-interactive': '#ff9f1c',
+        '--ui-table-surface-body': '#ffffff',
+        '--ui-table-surface-row': 'transparent',
+        '--ui-table-surface-row-hover': '#fff5e6',
+        '--ui-table-surface-row-selected': '#d98009',
+        '--ui-table-surface-footer': '#d98009'
       }
     }
   ];
