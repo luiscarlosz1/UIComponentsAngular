@@ -81,7 +81,6 @@ src/
 - Form-Associated Custom Elements
 - Angular Signals
 - SCSS + CSS Variables
-- FontAwesome
 
 ## What this project is (and is not)
 
