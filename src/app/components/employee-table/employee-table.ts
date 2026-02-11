@@ -12,7 +12,6 @@ import {
 
 @Component({
   selector: 'app-employee-table',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './employee-table.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
