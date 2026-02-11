@@ -1,6 +1,13 @@
 <ui-table-manager
-  style="overflow: auto;"
+  style="overflow: auto; min-width: 800px;"
   [data]="employees()"
   [headers]="employeeHeaders"
   [stickyColumns]="{ left: 2, right: 1 }"
   [templates]="{ cell: cellTemplates }" />
+<ui-popup
+  style="--ui-popup-max-width: 388px;"
+  [show]="showDeletionModal()"
+  [popupProps]="deletionPopupProps"
+  (backdropDismiss)="onCloseDeletionModal()"
+  (closeButtonClick)="onCloseDeletionModal()"
+  (footerButtonClick)="onfooterButtonClick($event)" />

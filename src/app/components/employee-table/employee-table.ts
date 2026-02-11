@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, input, output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, input, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeFormModel } from '../../models/employee-form.models';
 import { UiTableHeader } from '@luiscarlosz1/stencil-library';
@@ -20,20 +20,31 @@ export class EmployeeTableComponent {
   employees = input<EmployeeFormModel[]>([]);
   edit = output<EmployeeFormModel>();
   delete = output<string>();
+  showDeletionModal = signal(false);
+
+  private selectedEmployeeForDeletion: EmployeeFormModel | null = null;
+
+  deletionPopupProps = {
+    title: "Confirm employee deletion",
+    content: "Are you sure you want to delete this employee? All associated data will be permanently removed.",
+    primaryButtonText: "Confirm",
+    tertiaryButtonText: "Cancel",
+    showCloseButton: true
+  };
 
   employeeHeaders: UiTableHeader[] = [
     { field: 'fullName', text: 'Full Name', width: '200px' },
     { field: 'role', text: 'Role', width: '150px' },
     { field: 'email', text: 'Email' },
-    { field: 'country', text: 'Country'},
+    { field: 'country', text: 'Country' },
     { field: 'city', text: 'City' },
     { field: 'contractType', text: 'Contract Type' },
     { field: 'shift', text: 'Shift' },
     { field: 'medicalInsurance', text: 'Medical Insurance' },
     { field: 'remoteWork', text: 'Remote Work' },
     { field: 'bonus', text: 'Bonus' },
-    { field: 'startDate', text: 'Start Date'},
-    { field: 'birthDate', text: 'Birth Date'},
+    { field: 'startDate', text: 'Start Date' },
+    { field: 'birthDate', text: 'Birth Date' },
     { field: 'availabilityRange', text: 'Availability' },
     { field: 'comments', text: 'Comments' },
     { field: 'actions', text: 'Actions', width: '200px' }
@@ -74,7 +85,20 @@ export class EmployeeTableComponent {
   }
 
   onDelete(row: EmployeeFormModel) {
-    this.delete.emit(row.curp);
+    this.showDeletionModal.set(true);
+    this.selectedEmployeeForDeletion = row;
+  }
+
+  onfooterButtonClick(event: CustomEvent<{ id: 'primary' | 'secondary' | 'tertiary' | string }>) {
+    if (event.detail.id === 'primary' && this.selectedEmployeeForDeletion) {
+      this.delete.emit(this.selectedEmployeeForDeletion.curp);
+    }
+    this.onCloseDeletionModal();
+  }
+
+  onCloseDeletionModal(): void {
+    this.showDeletionModal.set(false);
+    this.selectedEmployeeForDeletion = null;
   }
 
   private getTextFromOptions(value: string, options: { value: string; text: string }[]): string {
