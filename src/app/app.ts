@@ -4,6 +4,7 @@ import { defineCustomElement as defineUiButton } from '@luiscarlosz1/stencil-lib
 import { defineCustomElement as defineUiNotification } from '@luiscarlosz1/stencil-library/dist-custom-elements/ui-notification.js';
 import { defineCustomElement as defineUiTable } from '@luiscarlosz1/stencil-library/dist-custom-elements/ui-table.js';
 import { defineCustomElement as defineUiPaginator } from '@luiscarlosz1/stencil-library/dist-custom-elements/ui-paginator.js';
+import { defineCustomElement as defineUiPopup } from '@luiscarlosz1/stencil-library/dist-custom-elements/ui-popup.js';
 import { defineCustomElement as defineUiInput } from '@luiscarlosz1/stencil-library/dist-custom-elements/ui-input.js';
 
 import { defineCustomElement as defineUiSelect } from '@luiscarlosz1/stencil-library/dist-custom-elements/ui-select.js';
@@ -20,6 +21,7 @@ defineUiButton();
 defineUiInput();
 defineUiTable();
 defineUiPaginator();
+defineUiPopup();
 
 defineUiSelect();
 defineUiDatepicker();
