@@ -14,7 +14,7 @@ import {
 } from './employee-form.constants';
 import { CURP_PATTERN, RFC_PATTERN, DATE_DDMMYYYY_PATTERN } from '../../shared/validation/validation.patterns';
 import { EmployeeFormModel } from '../../models/employee-form.models';
-import { FormField, FieldState, form, disabled } from '@angular/forms/signals';
+import { FormField, FieldState, form, disabled, submit } from '@angular/forms/signals';
 import { emailField, minLen, patternField, requiredField } from '../../shared/validation/validation.factories';
 
 @Component({
@@ -76,6 +76,7 @@ export class EmployeeFormComponent {
     requiredField('Role is required')(schema.role);
     requiredField('Country is required')(schema.country);
     requiredField('Birth Date is required')(schema.birthDate);
+    requiredField('Nationality is required')(schema.nationality);
 
     emailField()(schema.email);
 
@@ -135,9 +136,12 @@ export class EmployeeFormComponent {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    const payload = this.employeeFormModel();
-    console.log('Signal form payload:', payload);
-    this.save.emit(this.employeeFormModel());
+    submit(this.employeeForm, async () => {
+      const payload = this.employeeFormModel();
+      console.log('Signal form payload:', payload);
+      this.save.emit(payload);
+      this.onReset();
+    });
   }
 
   onSetValues() {

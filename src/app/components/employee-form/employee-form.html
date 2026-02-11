@@ -34,6 +34,7 @@
           placeholder="Select a nationality"
           [options]="NATIONALITY_OPTIONS" 
           [formField]="employeeForm.nationality" 
+          [externalError]="getExternalError(employeeForm.nationality())"
           ngDefaultControl />
         <ui-datepicker
           [required]="true"
@@ -79,6 +80,7 @@
           [required]="true"
           [options]="ROLE_OPTIONS"
           [formField]="employeeForm.role"
+          [externalError]="getExternalError(employeeForm.role())"
           ngDefaultControl />
         <ui-datepicker
           [externalError]="getExternalError(employeeForm.startDate())"
@@ -127,8 +129,8 @@
         <ui-button color="primary" label="Set Values" (buttonClick)="onSetValues()"/>
         <ui-button color="secondary" label="Set Incorrect Values" (buttonClick)="onSetIncorrectValues()" />
         <ui-button color="secondary" [label]="showFormData() ? 'Hide Current Data' : 'View Current Data'" (buttonClick)="onViewData()" />
-        <ui-button color="secondary" label="View Form State" (buttonClick)="onViewFormState()" />
-        <ui-button color="success" button-type="submit" label="Save Employee" [disabled]="employeeForm().invalid() || formIsDisabled()" />
+        <ui-button color="secondary" label="View Form State (console)" (buttonClick)="onViewFormState()" />
+        <ui-button color="success" button-type="submit" label="Save Employee" />
         <ui-button color="secondary" [label]="formIsDisabled() ? 'Activate' : 'Deactivate'" (buttonClick)="onDeactivate()"/>
         <ui-button color="tertiary" label="Reset" (buttonClick)="onReset()"/>
     </div>
